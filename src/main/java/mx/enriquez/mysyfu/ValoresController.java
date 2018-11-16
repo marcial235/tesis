@@ -44,7 +44,7 @@ public class ValoresController {
     @RequestMapping(value = "/valores", method = RequestMethod.GET)
     public String listValores(Model model) {
        model.addAttribute("valor", new Valores());
-       model.addAttribute("listValores", this.valoresEstadoService.getValorEstadoById(1));
+       model.addAttribute("listValores", this.valoresEstadoService.listValorEstado());
        model.addAttribute("empresa", new Empresa());
        model.addAttribute("listEmpresas", this.empresaService.listEmpresas());
         return "valor";

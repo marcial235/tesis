@@ -27,15 +27,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RazonesController {
 
-    private ValoresEstadoService valoresEstadoService;
-    private EmpresaService empresaService;
+    //private ValoresEstadoService valoresEstadoService;
+    //private EmpresaService empresaService;
     private RazonService razonService;
 
-    @Autowired(required = true)
+    /*@Autowired(required = true)
     @Qualifier(value = "valoresEstadoService")
     public void setValoresEstadoService(ValoresEstadoService valoresEstadoService) {
         this.valoresEstadoService = valoresEstadoService;
-    }
+    }*/
     
     @Autowired(required = true)
     @Qualifier(value = "razonService")
@@ -60,7 +60,7 @@ public class RazonesController {
 
     @RequestMapping(value = "/razones/calcular", method = RequestMethod.POST)
     public String addValoresEstado(@ModelAttribute("idv") Valores v) {
-            this.valoresEstadoService.addValorEstado(v);
+            //this.valoresEstadoService.addValorEstado(v);
         return "redirect:/razones";
     }
 

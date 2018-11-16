@@ -91,7 +91,7 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="content">
-                                        <div class="row">
+                                        <div class="row ">
                                             <div class="card card-plain col-md-12">
                                                 <div class="header">
                                                     <h4 class="title">Listado de empresas en el sistema</h4>
@@ -104,56 +104,65 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <hr>
-                                            <div class="card col-md-12">
-                                                <div class="header">
-                                                    <h4 class="title">Información financiera</h4>
-                                                </div>
-                                                <div class="content table-responsive table-full-width">
-                                                    <c:if test="${!empty listValores}">
-                                                        <table class="table table-hover table-condensed">
-                                                            <thead style="font-size: 9px; text-align: center;">
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Activo corriente</th>
-                                                                    <th>Pasivo circulante</th>
-                                                                    <th>Costo de los materiales</th>
-                                                                    <th>Capital circulante</th>
-                                                                    <th>Derechos de cobros comerciales</th>
-                                                                    <th>Efectivo</th>
-                                                                    <th>Prestamos</th>
-                                                                    <th>Prestamos a corto plazo</th>
-                                                                    <th>Recursos propios</th>
-                                                                    <th>Activo total</th>
-                                                                    <th>Acciones</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody style="font-size: 11px;">
-                                                                <c:forEach items="${listValores}" var="valor">
-                                                                    <tr>
-                                                                        <td>${valor.id}</td>
-                                                                        <td>${valor.ca}</td>
-                                                                        <td>${valor.cl}</td>
-                                                                        <td>${valor.cm}</td>
-                                                                        <td>${valor.cc}</td>
-                                                                        <td>${valor.ddc}</td>
-                                                                        <td>${valor.ef}</td>
-                                                                        <td>${valor.ra}</td>
-                                                                        <td>${valor.racp}</td>
-                                                                        <td>${valor.rp}</td>
-                                                                        <td>${valor.ta}</td>
-                                                                        <td>
-                                                                            <a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i></a>
-                                                                            <a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-time"></i></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </c:forEach>
-                                                            </tbody>
-                                                        </table>
-                                                    </c:if>
-                                                </div>
-                                            </div>
-                                        </div>                                        
+                                        </div>
+                                        <hr>
+                                        <div class="clearfix"></div>
+                                        <div class="header">
+                                            <h4 class="title">Información financiera</h4>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <c:if test="${!empty listValores}">
+                                                <table class="table table-hover">
+                                                    <thead style="font-size: 9px; text-align: center;">
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Activo corriente</th>
+                                                            <th>Pasivo circulante</th>
+                                                            <th>Costo de los materiales</th>
+                                                            <th>Capital circulante</th>
+                                                            <th>Derechos de cobros comerciales</th>
+                                                            <th>Efectivo</th>
+                                                            <th>Prestamos</th>
+                                                            <th>Prestamos a corto plazo</th>
+                                                            <th>Recursos propios</th>
+                                                            <th>Activo total</th>
+                                                            <th>Ventas netas</th>
+                                                            <th>Activos No corrientes</th>
+                                                            <th>Inventarios</th>
+                                                            <th>Capital de trabajo</th>
+                                                            <th>Pasivos totales</th>
+                                                            <th>Acciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="font-size: 11px;">
+                                                        <c:forEach items="${listValores}" var="valor">
+                                                            <tr>
+                                                                <td>${valor.id}</td>
+                                                                <td>${valor.ca}</td>
+                                                                <td>${valor.cl}</td>
+                                                                <td>${valor.cm}</td>
+                                                                <td>${valor.cc}</td>
+                                                                <td>${valor.ddc}</td>
+                                                                <td>${valor.ef}</td>
+                                                                <td>${valor.ra}</td>
+                                                                <td>${valor.racp}</td>
+                                                                <td>${valor.rp}</td>
+                                                                <td>${valor.ta}</td>
+                                                                <td>${valor.ntsls}</td>
+                                                                <td>${valor.nca}</td>
+                                                                <td>${valor.invt}</td>
+                                                                <td>${valor.wrkcp}</td>
+                                                                <td>${valor.tl}</td>
+                                                                <td>
+                                                                    <a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i></a>
+                                                                    <a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-time"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </tbody>
+                                                </table>
+                                            </c:if>
+                                        </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
