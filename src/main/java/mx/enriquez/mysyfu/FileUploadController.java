@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -45,8 +44,8 @@ public class FileUploadController {
                 }
 
                 // Crear documento en el servidor
-                //File serverFile = new File(dir.getAbsolutePath() + File.separator + file.getOriginalFilename());
-                File archivo = new File("C:\\Users\\cnenr\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\tmpFiles\\ifrsxbrl_VIVA_2018-1.xbrl");
+                File archivo = new File(dir.getAbsolutePath() + File.separator + file.getOriginalFilename());
+                //File archivo = new File("C:\\Users\\cnenr\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\tmpFiles\\ifrsxbrl_VIVA_2018-1.xbrl");
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(archivo));
 
                 System.out.println("Ubicación de documento = " + archivo.getAbsolutePath());
@@ -59,7 +58,6 @@ public class FileUploadController {
                 doc.getDocumentElement().normalize();
 
                 //System.out.println(doc.getAttributes());
-
                 System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
                 NodeList listaNodos = doc.getDocumentElement().getChildNodes();
                 //For principal para recorrer los nodos
@@ -87,9 +85,9 @@ public class FileUploadController {
 
                     }
                     //If para obtener los tags ifrs (valores)
-                    if (nodo.getNodeName().contains("ifrs")) {
+                    if (nodo.getNodeName().contains("ifrs-full")) {
                         Element elemento = (Element) nodo;
-                        if (elemento.getAttribute("contextRef").contains("C861d4ba8-c3bf-4064-c0b8-0dc642c5f3c0")) {
+                        if (elemento.getAttribute("contextRef").contains("C861d4ba8-c3bf-4064-c0b8-0dc642c5f3c0")&& (elemento.getTextContent() != null || !elemento.getTextContent().isEmpty())) {
                             System.out.print("Elemento: " + elemento.getNodeName() + "\n");
                             System.out.print("contextRef: " + elemento.getAttribute("contextRef") + "\n");
                             System.out.print("value: " + elemento.getTextContent() + "\n");

@@ -1,14 +1,14 @@
 <%-- 
-    Document   : razon
-    Created on : Oct 3, 2018, 5:52:17 PM
+    Document   : valores
+    Created on : Oct 1, 2018, 8:45:05 PM
     Author     : ISC. Cristian Enríquez
 --%>
+
 <%@ include file="include.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,13 +31,13 @@
                                 <p>Carga de archivos</p>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="${pageContext.request.contextPath}/valores">
                                 <i class="ti-panel"></i>
                                 <p>Detalles</p>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="${pageContext.request.contextPath}/razones">
                                 <i class="ti-stats-up"></i>
                                 <p>Razones financieras</p>
@@ -53,7 +53,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="main-panel">
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
@@ -64,6 +63,7 @@
                                 <span class="icon-bar bar2"></span>
                                 <span class="icon-bar bar3"></span>
                             </button>
+                            <!--<a class="navbar-brand" href="#">Template</a>-->
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -85,82 +85,87 @@
                         </div>
                     </div>
                 </nav>
-
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="content">
-                                        <div class="row">
-                                            <div class="card card-plain col-md-6">
+                                        <div class="row ">
+                                            <div class="card card-plain col-md-12">
                                                 <div class="header">
-                                                    <h4 class="title">Listado de empresas</h4>
+                                                    <h4 class="title">Listado de empresas en el sistema</h4>
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <option value="1">Empresa</option>
-                                                        <!--<c:forEach items="${listEmpresas}" var="emp">
+                                                        <option>Empresa</option>
+                                                        <c:forEach items="${listEmpresas}" var="emp">
                                                             <option value="${emp.id}">${emp.empresa}</option>
-                                                        </c:forEach>-->
+                                                        </c:forEach>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="card card-plain col-md-6">
-                                                <div class="header">
-                                                    <h4 class="title">Listado de estados financieros</h4>
-                                                </div>
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option value="1">1 2016-01-31</option>
-                                                        <!--<c:forEach items="${listEmpresas}" var="emp">
-                                                            <option value="${emp.id}">${emp.empresa}</option>
-                                                        </c:forEach>-->
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="col-md-12">
-                                                <div class="header">
-                                                    <h4 class="title">Razones financieras calculadas</h4>
-                                                </div>
-                                                <table class="table table-hover table-bordered">
-                                                    <thead>
+                                        </div>
+                                        <hr>
+                                        <div class="clearfix"></div>
+                                        <div class="header">
+                                            <h4 class="title">Información financiera</h4>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <div class="col-md-12" style="overflow-x: scroll">
+                                            <c:if test="${!empty listValores}">
+                                                <table class="table table-hover">
+                                                    <thead style="font-size: 9px; text-align: center;">
                                                         <tr>
-                                                            <th>Razon financiera</th>
-                                                            <th>Formula</th>
-                                                            <th>Valor</th>
+                                                            <th>ID</th>
+                                                            <th>Activo corriente</th>
+                                                            <th>Pasivo circulante</th>
+                                                            <th>Costo de los materiales</th>
+                                                            <th>Capital circulante</th>
+                                                            <th>Derechos de cobros comerciales</th>
+                                                            <th>Efectivo</th>
+                                                            <th>Prestamos</th>
+                                                            <th>Prestamos a corto plazo</th>
+                                                            <th>Recursos propios</th>
+                                                            <th>Activo total</th>
+                                                            <th>Ventas netas</th>
+                                                            <th>Activos No corrientes</th>
+                                                            <th>Inventarios</th>
+                                                            <th>Capital de trabajo</th>
+                                                            <th>Pasivos totales</th>
+                                                            <th>Acciones</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Razon corriente</td>
-                                                            <td>Activo corriente / Pasivo circulante</td>
-                                                            <td class="danger">5.74</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Razon ACIDA</td>
-                                                            <td>(Activo corriente - Inventarios) / Pasivo circulante</td>
-                                                            <td class="danger">2.97</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Razon de deuda</td>
-                                                            <td>Pasivo total / Activo total</td>
-                                                            <td class="danger">0.27</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Razon de calidad de deuda</td>
-                                                            <td>Recursos ajenos a corto plazo / Recursos ajenos</td>
-                                                            <td class="danger">0</td>
-                                                        </tr>
+                                                    <tbody style="font-size: 11px;">
+                                                        <c:forEach items="${listValores}" var="valor">
+                                                            <tr>
+                                                                <td>${valor.id}</td>
+                                                                <td>${valor.ca}</td>
+                                                                <td>${valor.cl}</td>
+                                                                <td>${valor.cm}</td>
+                                                                <td>${valor.cc}</td>
+                                                                <td>${valor.ddc}</td>
+                                                                <td>${valor.ef}</td>
+                                                                <td>${valor.ra}</td>
+                                                                <td>${valor.racp}</td>
+                                                                <td>${valor.rp}</td>
+                                                                <td>${valor.ta}</td>
+                                                                <td>${valor.ntsls}</td>
+                                                                <td>${valor.nca}</td>
+                                                                <td>${valor.invt}</td>
+                                                                <td>${valor.wrkcp}</td>
+                                                                <td>${valor.tl}</td>
+                                                                <td>
+                                                                    <a href="${pageContext.request.contextPath}/razones" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i> Calcular razones</a>
+                                                                    <!--<a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-eye">Ver razones</i></a>-->
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
                                                     </tbody>
                                                 </table>
-                                            </div>
-                                        </div>    
-                                        <div class="pull-right">
-                                            <button type="submit" class="btn btn-info btn-fill btn-wd"><i class="ti-bolt"></i> Analisis difuso</button>
+                                            </c:if>
                                         </div>
-                                        <br><br>
+                                        </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -176,6 +181,7 @@
                     </div>
                 </div>
             </footer>
+
         </div>
     </body>
 </html>

@@ -104,7 +104,7 @@
                                         <h4 class="title">Seleccionar archivo</h4>
                                     </div>
                                     <div class="content">
-                                        <form  method="POST" action="${pageContext.request.contextPath}/file/uploadFile" enctype="multipart/form-data">
+                                        <form  method="POST" action="${pageContext.request.contextPath}/file/uploadFile" enctype="multipart/form-data" modelAttribute="valor">
                                             <div class="row">
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-11">
@@ -114,6 +114,89 @@
                                                         <input type="file" class="form-control" name="file"> 
                                                     </div>
                                                 </div>                                        
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Seleccionar empresa:</label>
+                                                        <select class="form-control">
+                                                            <option value="0"> -- </option>
+                                                            <option value="1">VIVA</option>
+                                                            <option value="2">BACHOCO</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Nombre empresa:</label>
+                                                        <input type="text" class="form-control" name="nombreempresa"> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="pc">Fecha de estado financiero</label>
+                                                        <input type="date" class="form-control" name="fechaemision"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Activo corriente:</label>
+                                                        <input type="text" class="form-control" name="ac"> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="pc">Pasivo corriente</label>
+                                                        <input type="text" class="form-control" name="cc"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Inventarios:</label>
+                                                        <input type="text" class="form-control" name="cm"> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="pc">Pasivo fijo</label>
+                                                        <input type="text" class="form-control" name="cc"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Costo de materiales:</label>
+                                                        <input type="text" class="form-control" name="cm"> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="pc">Capital circulante</label>
+                                                        <input type="text" class="form-control" name="cc"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Efectivo:</label>
+                                                        <input type="text" class="form-control" name="ef"> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="pc">Prestamos o recursos ajenos</label>
+                                                        <input type="text" class="form-control" name="ra"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Equidad o recursos propios:</label>
+                                                        <input type="text" class="form-control" name="rp"> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="pc">Recursos ajenos a corto plazo</label>
+                                                        <input type="text" class="form-control" name="racp"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Activo total</label>
+                                                        <input type="text" class="form-control" name="at"> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="control-label" for="ac">Pasivo total</label>
+                                                        <input type="text" class="form-control" name="at"> 
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="text-center">

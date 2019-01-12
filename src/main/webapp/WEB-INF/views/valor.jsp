@@ -98,9 +98,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <c:forEach items="${listEmpresas}" var="emp">
-                                                            <option value="${emp.id}">${emp.empresa}</option>
-                                                        </c:forEach>
+                                                        <option>VIVA</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -111,7 +109,7 @@
                                             <h4 class="title">Información financiera</h4>
                                         </div>
                                         <div class="table-responsive">
-                                            <c:if test="${!empty listValores}">
+                                            <div class="col-md-12" style="overflow-x: scroll">
                                                 <table class="table table-hover">
                                                     <thead style="font-size: 9px; text-align: center;">
                                                         <tr>
@@ -135,33 +133,31 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody style="font-size: 11px;">
-                                                        <c:forEach items="${listValores}" var="valor">
-                                                            <tr>
-                                                                <td>${valor.id}</td>
-                                                                <td>${valor.ca}</td>
-                                                                <td>${valor.cl}</td>
-                                                                <td>${valor.cm}</td>
-                                                                <td>${valor.cc}</td>
-                                                                <td>${valor.ddc}</td>
-                                                                <td>${valor.ef}</td>
-                                                                <td>${valor.ra}</td>
-                                                                <td>${valor.racp}</td>
-                                                                <td>${valor.rp}</td>
-                                                                <td>${valor.ta}</td>
-                                                                <td>${valor.ntsls}</td>
-                                                                <td>${valor.nca}</td>
-                                                                <td>${valor.invt}</td>
-                                                                <td>${valor.wrkcp}</td>
-                                                                <td>${valor.tl}</td>
-                                                                <td>
-                                                                    <a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i></a>
-                                                                    <a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-time"></i></a>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
+                                                        <tr>
+                                                            <td>7</td>
+                                                            <td>3441000</td>
+                                                            <td>6004000</td>
+                                                            <td>0</td>
+                                                            <td>935000</td>
+                                                            <td>0</td>
+                                                            <td>7859000</td>
+                                                            <td>920000</td>
+                                                            <td>6004000</td>
+                                                            <td>863000</td>
+                                                            <td>7859000</td>
+                                                            <td>0</td>
+                                                            <td>4418000</td>
+                                                            <td>86000</td>
+                                                            <td>0</td>
+                                                            <td>6924000</td>
+                                                            <td>
+                                                                <a href="${pageContext.request.contextPath}/razones" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i> Calcular razones</a>
+                                                                <!--<a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-eye">Ver razones</i></a>-->
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
-                                            </c:if>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>

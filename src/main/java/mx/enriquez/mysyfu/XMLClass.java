@@ -58,9 +58,9 @@ public class XMLClass {
 
                 }
                 //If para obtener los tags ifrs (valores)
-                if (nodo.getNodeName().contains("ifrs-full:ProfitLoss")) {
+                if (nodo.getNodeName().contains("ifrs-full:")) {
                     Element elemento = (Element) nodo;
-                    if (elemento.getAttribute("contextRef").contains("C861d4ba8-c3bf-4064-c0b8-0dc642c5f3c0")) {
+                    if (elemento.getAttribute("contextRef").contains("C861d4ba8-c3bf-4064-c0b8-0dc642c5f3c0") && (elemento.getTextContent() != null || !elemento.getTextContent().isEmpty())) {
                         System.out.print("Elemento: " + elemento.getNodeName() + "\n");
                         System.out.print("contextRef: " + elemento.getAttribute("contextRef") + "\n");
                         System.out.print("value: " + elemento.getTextContent() + "\n");
