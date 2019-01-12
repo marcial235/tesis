@@ -204,6 +204,11 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>1.9.48</version>
+            </plugin>
         </plugins>
         <finalName>${project.artifactId}</finalName>
     </build>
