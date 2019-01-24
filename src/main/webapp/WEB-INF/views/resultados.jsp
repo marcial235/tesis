@@ -112,19 +112,19 @@
                                             </tr>
                                             <tr>
                                                 <td>Valor desborrosificado</td>
-                                                <td>15.85</td>
+                                                <td>11.241128256975045</td>
                                             </tr>
                                             <tr>
                                                 <td>Termino malo: </td>
-                                                <td>0.1877030023252096</td>
+                                                <td>0.022683192827135424</td>
                                             </tr>
                                             <tr>
                                                 <td>Termino bueno: </td>
-                                                <td>0.09477065352079143</td>
+                                                <td>0.7538345719745755</td>
                                             </tr>
                                             <tr>
                                                 <td>Termino regular: </td>
-                                                <td>0.9855110795155826</td>
+                                                <td>0.45884921138292234</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -141,7 +141,7 @@
                                             </div>
                                             <hr>
                                             <div class="stats">
-                                                <i class="ti-target"></i> La empresa
+                                                <i class="ti-target"></i> CHDRAUI
                                             </div>
                                         </div>
                                     </div>
@@ -168,9 +168,9 @@
     <script type="text/javascript">
         Chartist.Line('.ct-chart', {
             series: [
-                [0, 0.09477065352079143, 0],
-                [0, 0, 0.9855110795155826, 0],
-                [0, 0, 0, 0.1877030023252096, 0]
+                [0, 0.7538345719745755, 0],
+                [0, 0, 0.45884921138292234, 0],
+                [0, 0, 0, 0.022683192827135424, 0]
             ]
         }, {
             low: 0,

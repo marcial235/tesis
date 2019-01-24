@@ -31,7 +31,7 @@ public class ValoresEstadoDAOImpl implements ValoresEstadoDAO {
     @Override
     public void addValorEstado(Valores ve) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(ve);
+            session.save(ve);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class ValoresEstadoDAOImpl implements ValoresEstadoDAO {
     @Override
     public List<Valores> listValorEstados() {
         Session session = this.sessionFactory.getCurrentSession();
-            Query query = session.createQuery("from Valores");
+        Query query = session.createQuery("from Valores");
         List<Valores> valorEstadoList = query.list();
         for (Valores ef : valorEstadoList) {
             logger.info("valorEstadoList List::" + ef);

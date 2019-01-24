@@ -30,7 +30,12 @@ public class EmpresaDAOImpl implements EmpresaDAO {
     @Override
     public void addEmpresa(Empresa e) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(e);
+        try {
+            session.save(e);
+
+        } catch (Exception f) {
+            System.err.printf("Error:", f);
+        }
     }
 
     @Override

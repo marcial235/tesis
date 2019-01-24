@@ -98,10 +98,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <option>Empresa</option>
-                                                        <c:forEach items="${listEmpresas}" var="emp">
-                                                            <option value="${emp.id}">${emp.empresa}</option>
-                                                        </c:forEach>
+                                                        <option>CHDRAUI</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -113,7 +110,6 @@
                                         </div>
                                         <div class="table-responsive">
                                             <div class="col-md-12" style="overflow-x: scroll">
-                                            <c:if test="${!empty listValores}">
                                                 <table class="table table-hover">
                                                     <thead style="font-size: 9px; text-align: center;">
                                                         <tr>
@@ -137,34 +133,31 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody style="font-size: 11px;">
-                                                        <c:forEach items="${listValores}" var="valor">
-                                                            <tr>
-                                                                <td>${valor.id}</td>
-                                                                <td>${valor.ca}</td>
-                                                                <td>${valor.cl}</td>
-                                                                <td>${valor.cm}</td>
-                                                                <td>${valor.cc}</td>
-                                                                <td>${valor.ddc}</td>
-                                                                <td>${valor.ef}</td>
-                                                                <td>${valor.ra}</td>
-                                                                <td>${valor.racp}</td>
-                                                                <td>${valor.rp}</td>
-                                                                <td>${valor.ta}</td>
-                                                                <td>${valor.ntsls}</td>
-                                                                <td>${valor.nca}</td>
-                                                                <td>${valor.invt}</td>
-                                                                <td>${valor.wrkcp}</td>
-                                                                <td>${valor.tl}</td>
-                                                                <td>
-                                                                    <a href="${pageContext.request.contextPath}/razones" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i> Calcular razones</a>
-                                                                    <!--<a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-eye">Ver razones</i></a>-->
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
+                                                        <tr>
+                                                            <td>8</td>
+                                                            <td>14904576000</td>
+                                                            <td>18611182000</td>
+                                                            <td>0</td>
+                                                            <td>28836287000</td>
+                                                            <td>702572000</td>
+                                                            <td>2247732000</td>
+                                                            <td>486372000</td>
+                                                            <td>16790959000</td>
+                                                            <td>28836287000</td>
+                                                            <td>55522067000</td>
+                                                            <td>0</td>
+                                                            <td>40617491000</td>
+                                                            <td>9700588000</td>
+                                                            <td>0</td>
+                                                            <td>26685780000</td>
+                                                            <td>
+                                                                <a href="${pageContext.request.contextPath}/razones" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i> Calcular razones</a>
+                                                                <!--<a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-eye">Ver razones</i></a>-->
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
-                                            </c:if>
-                                        </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -184,4 +177,14 @@
 
         </div>
     </body>
+        <script type="text/javascript">
+        $("a[href]").click(function () {
+            console.log('Click');
+            var url = this.href;
+            setTimeout(function () {
+                location.href = url;
+            }, 3000);
+            return false;
+        });
+    </script>
 </html>

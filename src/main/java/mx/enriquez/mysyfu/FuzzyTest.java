@@ -23,7 +23,7 @@ public class FuzzyTest {
    
     public static void main(String[] args) throws Exception {
         // Cargar archivo 'FCL'
-        String fileName = "c://fuzzy/arana.fcl";
+        String fileName = "c://fuzzy/test.fcl";
         FIS fis = FIS.load(fileName, true);
         if (fis == null) { // Error while loading?
             System.err.println("Can't load file: '" + fileName + "'");
@@ -35,9 +35,9 @@ public class FuzzyTest {
         JFuzzyChart.get().chart(functionBlock);
 
         // Set inputs
-        functionBlock.setVariable("rc", 3.64);
-        functionBlock.setVariable("ra", 2.13);
-        functionBlock.setVariable("re", 0.27);
+        functionBlock.setVariable("rc", 2.54);
+        functionBlock.setVariable("ra", 1.31);
+        functionBlock.setVariable("re", 0.39);
         functionBlock.setVariable("rcd", 0);
 
         // Evaluate 
@@ -45,7 +45,7 @@ public class FuzzyTest {
 
         //Mostrar variables de salida y graficos
         Variable EstadoFinanciero = functionBlock.getVariable("ef");
-        //JFuzzyChart.get().chart(EstadoFinanciero, EstadoFinanciero.getDefuzzifier(), true);
+        JFuzzyChart.get().chart(EstadoFinanciero, EstadoFinanciero.getDefuzzifier(), true);
         System.out.println(EstadoFinanciero);
         System.out.println("-------------------------------------------------");
         // Print ruleSet

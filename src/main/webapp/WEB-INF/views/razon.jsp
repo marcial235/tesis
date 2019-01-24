@@ -99,7 +99,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <option value="1">Empresa</option>
+                                                        <option value="1">CHDRAUI</option>
                                                         <!--<c:forEach items="${listEmpresas}" var="emp">
                                                             <option value="${emp.id}">${emp.empresa}</option>
                                                         </c:forEach>-->
@@ -112,7 +112,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <option value="1">1 2016-01-31</option>
+                                                        <option value="1">1 2018-01-31</option>
                                                         <!--<c:forEach items="${listEmpresas}" var="emp">
                                                             <option value="${emp.id}">${emp.empresa}</option>
                                                         </c:forEach>-->
@@ -136,29 +136,30 @@
                                                         <tr>
                                                             <td>Razon corriente</td>
                                                             <td>Activo corriente / Pasivo circulante</td>
-                                                            <td class="danger">5.74</td>
+                                                            <td class="danger">0.80</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Razon ACIDA</td>
                                                             <td>(Activo corriente - Inventarios) / Pasivo circulante</td>
-                                                            <td class="danger">2.97</td>
+                                                            <td class="danger">0.27</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Razon de deuda</td>
                                                             <td>Pasivo total / Activo total</td>
-                                                            <td class="danger">0.27</td>
+                                                            <td class="danger">0.48</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Razon de calidad de deuda</td>
                                                             <td>Recursos ajenos a corto plazo / Recursos ajenos</td>
-                                                            <td class="danger">0</td>
+                                                            <td class="danger">2.07</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>    
                                         <div class="pull-right">
-                                            <button type="submit" class="btn btn-info btn-fill btn-wd"><i class="ti-bolt"></i> Analisis difuso</button>
+                                            <a href="${pageContext.request.contextPath}/resultados" class="btn btn-sm btn-success btn-icon"><i class="ti-bolt"></i> Analisis difuso</a>
+                                            <!--<button type="submit" class="btn btn-info btn-fill btn-wd"><i class="ti-bolt"></i> Analisis difuso</button>-->
                                         </div>
                                         <br><br>
                                     </div>
@@ -178,4 +179,14 @@
             </footer>
         </div>
     </body>
+        <script type="text/javascript">
+        $("a[href]").click(function () {
+            console.log('Click');
+            var url = this.href;
+            setTimeout(function () {
+                location.href = url;
+            }, 10000);
+            return false;
+        });
+    </script>
 </html>

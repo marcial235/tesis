@@ -37,11 +37,11 @@ public class Empresa implements Serializable {
         this.id = id;
     }
 
-    public String getEmpresa() {
+    public String getNempresa() {
         return nEmpresa;
     }
 
-    public void setEmpresa(String nEmpresa) {
+    public void setNempresa(String nEmpresa) {
         this.nEmpresa = nEmpresa;
     }
 

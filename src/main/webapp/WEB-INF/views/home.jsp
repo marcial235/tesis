@@ -214,19 +214,23 @@
                     <div class="container-fluid">
                         <div class="copyright pull-right">
                             &copy; <script>document.write(new Date().getFullYear())</script>,<a href="http://www.cristianenriquez.com"> Cristian Enríquez</a>
-                            <p>
-                                ${message}<br/>
-                                <a href="${pageContext.request.contextPath}/phones">Click here to generate the Phone List</a><br/>
-                            </p>
-                            <p>
-                                ${message}<br/>
-                                <a href="${pageContext.request.contextPath}/conceptos">Click here to generate the Phone List</a><br/>
-                            </p>
+                          
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+        $("a[href]").click(function () {
+            console.log('Click');
+            var url = this.href;
+            setTimeout(function () {
+                location.href = url;
+            }, 8000);
+            return false;
+        });
+    </script>
+
 </html>
 

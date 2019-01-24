@@ -42,10 +42,11 @@ public class EstadoFinancieroDAOImpl implements EstadoFinancieroDAO {
     @Override
     public List<EstadoFinanciero> listEstadoFinancieros() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<EstadoFinanciero> estadosfList = session.createQuery("from Estado_financiero").list();
+        List<EstadoFinanciero> estadosfList = session.createQuery("from EstadoFinanciero").list();
         for (EstadoFinanciero ef : estadosfList) {
             logger.info("EstadoFinanciero List::" + ef);
         }
+
         return estadosfList;
     }
 
