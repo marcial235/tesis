@@ -8,6 +8,7 @@ package mx.enriquez.mysyfu.service;
 import java.util.ArrayList;
 import java.util.List;
 import mx.enriquez.mysyfu.model.Razon;
+import mx.enriquez.mysyfu.model.Valores;
 
 /**
  *
@@ -25,9 +26,9 @@ public interface RazonService {
 
     public void removeRazon(int id);
     
-    public ArrayList listaRazonesRotacion(int id);
+    public ArrayList listaRazonesRotacion(Valores v);
     
-    public ArrayList listaRazonesLiquidez(int id);
+    public ArrayList listaRazonesLiquidez(Valores v);
     
-    public ArrayList listaRazonesSolvencia(int id);
+    public ArrayList listaRazonesSolvencia(Valores v);
 }

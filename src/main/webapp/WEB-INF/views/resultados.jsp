@@ -100,7 +100,7 @@
                         <div class="row">
                             <div class=" card col-lg-12 col-md-12">
                                 <div class="header">
-                                    <h4 class="title">Resultados del analisis financiero con logica difusa</h4>
+                                    <h4 class="title">Resultados del analisis financiero con logica difusa ${response}</h4>
                                 </div>
                                 <hr>
                                 <div class="card col-md-5">
@@ -166,11 +166,16 @@
         </div>
     </body>
     <script type="text/javascript">
+        var valores = ${response};
+        console.log(valores);
+        
+        var bueno = valores.values.bn;
+        console.log(bueno);
         Chartist.Line('.ct-chart', {
             series: [
-                [0, 0.7538345719745755, 0],
-                [0, 0, 0.45884921138292234, 0],
-                [0, 0, 0, 0.022683192827135424, 0]
+                [0, bueno, 0],
+                [0, 0, valores.values.ml, 0],
+                [0, 0, 0, valores.values.rg, 0]
             ]
         }, {
             low: 0,

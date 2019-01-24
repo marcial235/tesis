@@ -54,7 +54,10 @@ public class ValoresEstadoDAOImpl implements ValoresEstadoDAO {
     @Override
     public Valores getValorEstadoById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Valores ve = (Valores) session.load(Valores.class, new Integer(id));
+        //Valores ve = (Valores) session.load(Valores.class, new Integer(id));
+        Valores ve =  (Valores) session.get(Valores.class, id);
+        //Query query =  session.createQuery("from Valores where id =" +id );
+        //Valores ve = (Valores) query;
         return ve;
     }
 

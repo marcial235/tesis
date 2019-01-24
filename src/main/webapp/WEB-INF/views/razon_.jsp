@@ -99,9 +99,10 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <c:forEach items="${listEmpresas}" var="emp">
-                                                            <option value="${emp.id}">${emp.nempresa}</option>
-                                                        </c:forEach>
+                                                        <option value="1">CHDRAUI</option>
+                                                        <!--<c:forEach items="${listEmpresas}" var="emp">
+                                                            <option value="${emp.id}">${emp.empresa}</option>
+                                                        </c:forEach>-->
                                                     </select>
                                                 </div>
                                             </div>
@@ -111,9 +112,10 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <c:forEach items="${listEstadosFinancieros}" var="edof">
-                                                            <option value="${edof.id}">${edof.fechaPublicacion}</option>
-                                                        </c:forEach>
+                                                        <option value="1">1 2018-01-31</option>
+                                                        <!--<c:forEach items="${listEmpresas}" var="emp">
+                                                            <option value="${emp.id}">${emp.empresa}</option>
+                                                        </c:forEach>-->
                                                     </select>
                                                 </div>
                                             </div>
@@ -126,16 +128,31 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Razon financiera</th>
+                                                            <th>Formula</th>
                                                             <th>Valor</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <c:forEach items="${listRazones}" var="lr">
-                                                            <tr>
-                                                                <td>${lr.nRazon}</td>
-                                                                <td>${lr.valor}</td>
-                                                            </tr>
-                                                        </c:forEach>
+                                                        <tr>
+                                                            <td>Razon corriente</td>
+                                                            <td>Activo corriente / Pasivo circulante</td>
+                                                            <td class="danger">0.80</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Razon ACIDA</td>
+                                                            <td>(Activo corriente - Inventarios) / Pasivo circulante</td>
+                                                            <td class="danger">0.27</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Razon de deuda</td>
+                                                            <td>Pasivo total / Activo total</td>
+                                                            <td class="danger">0.48</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Razon de calidad de deuda</td>
+                                                            <td>Recursos ajenos a corto plazo / Recursos ajenos</td>
+                                                            <td class="danger">2.07</td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -162,7 +179,7 @@
             </footer>
         </div>
     </body>
-    <script type="text/javascript">
+        <script type="text/javascript">
         $("a[href]").click(function () {
             console.log('Click');
             var url = this.href;
