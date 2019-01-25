@@ -8,9 +8,7 @@ package mx.enriquez.mysyfu;
 import mx.enriquez.mysyfu.model.Empresa;
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.FunctionBlock;
-import net.sourceforge.jFuzzyLogic.Gpr;
 import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
-import net.sourceforge.jFuzzyLogic.rule.Rule;
 import net.sourceforge.jFuzzyLogic.rule.Variable;
 
 /**
@@ -18,9 +16,12 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
  * @author ISC. Cristian Enríquez
  */
 public class FuzzyTest {
+
     //Creamos la empresa
     Empresa empresa = new Empresa();
-   
+    
+    
+
     public static void main(String[] args) throws Exception {
         // Cargar archivo 'FCL'
         String fileName = "c://fuzzy/test.fcl";
@@ -35,9 +36,9 @@ public class FuzzyTest {
         JFuzzyChart.get().chart(functionBlock);
 
         // Set inputs
-        functionBlock.setVariable("rc", 2.54);
-        functionBlock.setVariable("ra", 1.31);
-        functionBlock.setVariable("re", 0.39);
+        functionBlock.setVariable("rc", 0.8);
+        functionBlock.setVariable("ra", 0.8);
+        functionBlock.setVariable("re", 0.8);
         functionBlock.setVariable("rcd", 0);
 
         // Evaluate 
@@ -45,7 +46,13 @@ public class FuzzyTest {
 
         //Mostrar variables de salida y graficos
         Variable EstadoFinanciero = functionBlock.getVariable("ef");
+        
         JFuzzyChart.get().chart(EstadoFinanciero, EstadoFinanciero.getDefuzzifier(), true);
+        
+        //XYPlot plot = (XYPlot) chart.getPlot();
+        //Range xRange = plot.getDomainAxis().getRange();
+        //Range yRange = plot.getRangeAxis().getRange();
+
         System.out.println(EstadoFinanciero);
         System.out.println("-------------------------------------------------");
         // Print ruleSet
@@ -69,6 +76,6 @@ public class FuzzyTest {
         for (Rule r : fis.getFunctionBlock("analisisfinanciero").getFuzzyRuleBlock("No3").getRules()) {
             System.out.println(r);
         }
-        */
+         */
     }
 }
