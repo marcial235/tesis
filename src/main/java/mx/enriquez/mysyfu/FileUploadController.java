@@ -82,7 +82,6 @@ public class FileUploadController {
 
                 // Crear documento en el servidor
                 File archivo = new File(dir.getAbsolutePath() + File.separator + file.getOriginalFilename());
-                //File archivo = new File("C:\\Users\\cnenr\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\tmpFiles\\ifrsxbrl_VIVA_2018-1.xbrl");
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(archivo));
 
                 //System.out.println("Ubicación de documento = " + archivo.getAbsolutePath());
@@ -98,16 +97,15 @@ public class FileUploadController {
                 //Recuperamos el contexto con el que vamos a trabajar, el cual se encuentra en la pocision 5
                 Element contexto = (Element) listaNodos.item(5);
                 contextoID = contexto.getAttribute("id");
-                System.out.println("Seleccionamos contexto: " + contextoID);
 
                 NodeList list = listaNodos.item(3).getChildNodes();
                 NodeList listaFechas = list.item(3).getChildNodes();
                 System.out.println("Fecha inicio: " + listaFechas.item(1).getTextContent());
                 System.out.println("Fecha fin: " + listaFechas.item(3).getTextContent());
                 System.out.println("Fecha emision: " + listaFechas.item(3).getTextContent());
-                Date fechaEmision = new SimpleDateFormat("dd-MM-yyyy").parse(listaFechas.item(3).getTextContent());
-                Date fechaInicio = new SimpleDateFormat("dd-MM-yyyy").parse(listaFechas.item(1).getTextContent());
-                Date fechaFin = new SimpleDateFormat("dd-MM-yyyy").parse(listaFechas.item(3).getTextContent());
+                Date fechaEmision = new SimpleDateFormat("yyyy-MM-dd").parse(listaFechas.item(3).getTextContent());
+                Date fechaInicio = new SimpleDateFormat("yyyy-MM-dd").parse(listaFechas.item(1).getTextContent());
+                Date fechaFin = new SimpleDateFormat("yyyy-MM-dd").parse(listaFechas.item(3).getTextContent());
                 estadoFinanciero.setFechaPublicacion(fechaEmision);
                 estadoFinanciero.setIniPeriodo(fechaInicio);
                 estadoFinanciero.setFinPeriodo(fechaFin);

@@ -259,6 +259,5 @@
                 showGrid: true
             }
         });
-        console.log(arreglo);
     </script>
 </html>

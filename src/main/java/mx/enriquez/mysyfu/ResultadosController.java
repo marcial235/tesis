@@ -29,10 +29,10 @@ public class ResultadosController {
         
         //Le tenemos que pasar valores de razones al modulo de logica difusa
         ModuloDifuso md = new ModuloDifuso();
-        md.setRa(0.8);
-        md.setRc(0.8);
-        md.setRcd(0.8);
-        md.setRe(0.0);
+        md.setRa(0.2796);
+        md.setRc(0.801);
+        md.setRcd(34.52);
+        md.setRe(0.48);
         
         //Mandar JSON a la vista
         String result= md.evalua();

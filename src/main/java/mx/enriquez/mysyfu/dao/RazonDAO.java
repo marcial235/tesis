@@ -23,5 +23,7 @@ public interface RazonDAO {
     public Razon getRazonById(int id);
 
     public void removeRazon(int id);
+    
+    public List<Razon> listRazonesById(int idf);
 
 }

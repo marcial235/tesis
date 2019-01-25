@@ -269,7 +269,7 @@ public class RazonServiceImpl implements RazonService {
     }
 
     public double SrDebtRatio(double totalLiabilities, double totalAssets) {
-        return (totalLiabilities / totalAssets) * 100;
+        return (totalLiabilities / totalAssets);
     }
 
 }

@@ -221,16 +221,5 @@
             </div>
         </div>
     </body>
-    <script type="text/javascript">
-        $("a[href]").click(function () {
-            console.log('Click');
-            var url = this.href;
-            setTimeout(function () {
-                location.href = url;
-            }, 8000);
-            return false;
-        });
-    </script>
-
 </html>
 

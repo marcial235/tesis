@@ -139,21 +139,21 @@
                                                         <c:forEach items="${listValores}" var="valor">
                                                             <tr>
                                                                 <td>${valor.id}</td>
-                                                                <td>${valor.ca}</td>
-                                                                <td>${valor.cl}</td>
-                                                                <td>${valor.cm}</td>
-                                                                <td>${valor.cc}</td>
-                                                                <td>${valor.ddc}</td>
-                                                                <td>${valor.ef}</td>
-                                                                <td>${valor.ra}</td>
-                                                                <td>${valor.racp}</td>
-                                                                <td>${valor.rp}</td>
-                                                                <td>${valor.ta}</td>
-                                                                <td>${valor.ntsls}</td>
-                                                                <td>${valor.nca}</td>
-                                                                <td>${valor.invt}</td>
-                                                                <td>${valor.wrkcp}</td>
-                                                                <td>${valor.tl}</td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.ca}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.cl}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.cm}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.cc}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.ddc}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.ef}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.ra}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.racp}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.rp}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.ta}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.ntsls}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.nca}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.invt}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.wrkcp}" /></td>
+                                                                <td><fmt:formatNumber currencySymbol="$" type="number" maxIntegerDigits="30" value="${valor.tl}" /></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/razones/calcular/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-bar-chart-alt"></i> Calcular razones</a>
                                                                     <!--<a href="${pageContext.request.contextPath}/razones/calcula/${valor.id}" class="btn btn-sm btn-success btn-icon"><i class="ti-eye">Ver razones</i></a>-->

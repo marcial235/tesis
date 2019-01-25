@@ -7,6 +7,7 @@ package mx.enriquez.mysyfu.dao;
 
 import java.util.List;
 import mx.enriquez.mysyfu.model.Razon;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -63,5 +64,16 @@ public class RazonDAOImpl implements RazonDAO {
         if (null != r) {
             session.delete(r);
         }
+    }
+
+    @Override
+    public List<Razon> listRazonesById(int idf) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createSQLQuery("SELECT * FROM razon WHERE _idestadof =" + idf);
+        List<Razon> razonList = query.list();
+        for (Razon ef : razonList) {
+            logger.info("Razon List::" + ef);
+        }
+        return razonList;
     }
 }
