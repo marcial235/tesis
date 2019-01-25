@@ -22,10 +22,11 @@ public class XMLClass {
 
     public static void main(String args[]) {
 
-        Empresa empresa = new Empresa();
+        String contextoID = "";
 
         try {
-            File archivo = new File("C:\\ifrsxbrl_VIVA_2018-1.xbrl");
+            File archivo = new File("C:\\ifrsxbrl_CHDRAUI_2018-1.xbrl");
+            //File archivo = new File("C:\\ifrsxbrl_VIVA_2018-1.xbrl");
 
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
@@ -33,37 +34,45 @@ public class XMLClass {
             document.getDocumentElement().normalize();
 
             NodeList listaNodos = document.getDocumentElement().getChildNodes();
+            
+            //Recuperamos el contexto con el que vamos a trabajar, el cual se encuentra en la pocision 5
+            Element contexto = (Element) listaNodos.item(5);
+            contextoID = contexto.getAttribute("id");
+            System.out.println("Seleccionamos contexto: " + contextoID);
+            
+            NodeList list = listaNodos.item(3).getChildNodes();
+            NodeList listaFechas = list.item(3).getChildNodes();
+            System.out.println("Fecha inicio: " + listaFechas.item(1).getTextContent());
+            System.out.println("Fecha fin: " + listaFechas.item(3).getTextContent());
+            System.out.println("Fecha emision: " + listaFechas.item(3).getTextContent());
+            
             //For principal para recorrer los nodos
             for (int temp = 0; temp < listaNodos.getLength(); temp++) {
                 Node nodo = listaNodos.item(temp);
+               // System.out.println(temp + " - " +nodo.getNodeName() + " - " + nodo.getTextContent());
                 //If para obtener las etiquetas xbrli:*
                 if (nodo.getNodeName().contains("xbrli:")) {
-                    Element element = (Element) nodo;
+                    Element element = (Element) nodo;                    
                     //If para seleccionar un contexto
-                    if (element.getAttribute("id").contains("C861d4ba8-c3bf-4064-c0b8-0dc642c5f3c0")) {
-                        System.out.print("Elemento: " + element.getNodeName() + "\n");
-                        System.out.print("         ID: " + element.getAttribute("id") + "\n");
-
+                    if (element.getAttribute("id").contains(contextoID)) {
                         NodeList nodosElemento = element.getChildNodes();
                         //For para recorrer los tags anidados dentro de xbrli
-                        for (int i = 0; i < nodosElemento.getLength(); i++) {
-                            Node nodoElemento = nodosElemento.item(i);
+                        for (int z = 0; z < nodosElemento.getLength(); z++) {
+                            Node nodoElemento = nodosElemento.item(z);
                             if (nodoElemento.getNodeName().contains("entity")) {
-                                empresa.setEmpresa(nodoElemento.getTextContent());
-                                System.out.println("SetEmpresa():" + nodoElemento.getTextContent());
+                                System.out.println("Empresa: " + nodoElemento.getTextContent().trim());
                             }
-
                         }
                     }
 
                 }
+                
                 //If para obtener los tags ifrs (valores)
                 if (nodo.getNodeName().contains("ifrs-full:")) {
                     Element elemento = (Element) nodo;
-                    if (elemento.getAttribute("contextRef").contains("C861d4ba8-c3bf-4064-c0b8-0dc642c5f3c0") && (elemento.getTextContent() != null || !elemento.getTextContent().isEmpty())) {
-                        System.out.print("Elemento: " + elemento.getNodeName() + "\n");
-                        System.out.print("contextRef: " + elemento.getAttribute("contextRef") + "\n");
-                        System.out.print("value: " + elemento.getTextContent() + "\n");
+                    if (elemento.getAttribute("contextRef").contains(contextoID) && (elemento.getTextContent() != null || !elemento.getTextContent().isEmpty())) {
+                       System.out.print("Elemento: " + elemento.getNodeName() + "\n");
+                       System.out.print("value: " + elemento.getTextContent() + "\n");
                     }
                 }
 
