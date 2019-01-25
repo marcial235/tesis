@@ -39,6 +39,7 @@ public class ModuloDifuso {
         Variable EstadoFinanciero = functionBlock.getVariable("ef");
         
         response = "{values : {ef: '"+ fis.getVariable("ef").getValue() + "'";
+        response += ", ef: '" + fis.getVariable("ef").getValue() + "'";
         response += ", bn: '" + EstadoFinanciero.getMembership("bueno") + "'";
         response += ", rg: '" + EstadoFinanciero.getMembership("regular") + "'";
         response += ", ml: '" + EstadoFinanciero.getMembership("malo") + "'}}";

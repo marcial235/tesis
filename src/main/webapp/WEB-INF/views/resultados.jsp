@@ -100,37 +100,64 @@
                         <div class="row">
                             <div class=" card col-lg-12 col-md-12">
                                 <div class="header">
-                                    <h4 class="title">Resultados del analisis financiero con logica difusa ${response}</h4>
+                                    <h4 class="title">Conjuntos y valores de pertenencia</h4>
                                 </div>
                                 <hr>
-                                <div class="card col-md-5">
+                                <div class="card col-md-12" >
+                                    <div class="cr-chart"></div>
+                                    <div class="footer">
+                                        <div class="footer">
+                                            <div class="chart-legend">
+                                                <table class="table table-hover table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><i class="fa fa-circle text-warning"></i> Valor lingüistico malo: </td>
+                                                            <td><label id="tlml"></label></td>
+                                                            <td><i class="fa fa-circle text-danger"></i> Valor lingüistico regular: </td>
+                                                            <td><label id="tlrl"></label></td>
+                                                            <td><i class="fa fa-circle text-info"></i> Valor lingüistico bueno: </td>
+                                                            <td><label id="tlbn"></label></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                Bueno
+                                                Regular
+                                                Malo
+                                            </div>
+                                            <hr>
+                                            <div class="stats">
+                                                <i class="ti-target"></i> Membership functions
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                    
+                                <div class="clearfix"></div>
+                            </div>
+                            <hr>
+                        </div>
+                        <!-- Variables de pertenencia -->
+                        <div class="row">
+                            <div class=" card col-lg-12 col-md-12">
+                                <div class="header">
+                                    <h4 class="title">Resultados del analisis financiero con logica difusa</h4>
+                                </div>
+                                <hr>
+                                <div class="card col-md-12">
                                     <table class="table table-hover table-bordered">
                                         <tbody>
                                             <tr>
-                                                <td>Tipo de desborosificador</td>
+                                                <td>Tipo de desborrosificador</td>
                                                 <td>Center Of Gravity</td>
                                             </tr>
                                             <tr>
                                                 <td>Valor desborrosificado</td>
-                                                <td>11.241128256975045</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Termino malo: </td>
-                                                <td>0.022683192827135424</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Termino bueno: </td>
-                                                <td>0.7538345719745755</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Termino regular: </td>
-                                                <td>0.45884921138292234</td>
+                                                <td><label id="ef"></label></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="card col-md-6">
-                                    <div id="razonDeuda" class="ct-chart"></div>
+                                <div class="card col-md-12">
+                                    <div class="ct-chart"></div>
 
                                     <div class="footer">
                                         <div class="footer">
@@ -138,16 +165,16 @@
                                                 <i class="fa fa-circle text-info"></i> Bueno
                                                 <i class="fa fa-circle text-danger"></i> Regular
                                                 <i class="fa fa-circle text-warning"></i> Malo
+                                                <i class="fa fa-circle text-success"></i> Centro de gravedad
                                             </div>
                                             <hr>
                                             <div class="stats">
-                                                <i class="ti-target"></i> CHDRAUI
+                                                <i class="ti-target"></i> Defuzzier value
                                             </div>
                                         </div>
                                     </div>
                                 </div>                                    
                                 <div class="clearfix"></div>
-
                             </div>
                         </div>
                     </div>
@@ -167,19 +194,71 @@
     </body>
     <script type="text/javascript">
         var valores = ${response};
-        console.log(valores);
-        
         var bueno = valores.values.bn;
-        console.log(bueno);
+        var regular = valores.values.rg;
+        var malo = valores.values.ml;
+        var ef = valores.values.ef;
+        $("#tlbn").text(bueno);
+        $("#tlrl").text(regular);
+        $("#tlml").text(malo);
+        $("#ef").text(ef);
+        var total = parseFloat(bueno)+parseFloat(regular)+parseFloat(malo);
+        var cog = parseInt(ef)+6;
+        
+        //Arreglo para posicionar el centro de gravedad
+        var arreglo = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        arreglo [cog] = 1;
+
+        var data = {
+            labels: ['Bueno', 'Malo', 'Regular'],
+            series: [bueno, malo, regular]
+        };
+
+        var options = {
+            width: '100%',
+            labelInterpolationFnc: function (value) {
+                return value[0]
+            },
+            showLabel: true
+        };
+
+        var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+                    chartPadding: 0,
+                    labelOffset: 0,
+                    labelDirection: 'explode',
+                    labelInterpolationFnc: function (value) {
+                        return value;
+                    }
+                }],
+            ['screen and (min-width: 1024px)', {
+                    labelOffset: 0,
+                    chartPadding: 10
+                }]
+        ];
+
+        Chartist.Pie('.cr-chart', data, options, responsiveOptions);
+
+
         Chartist.Line('.ct-chart', {
+            labels: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],
             series: [
-                [0, bueno, 0],
-                [0, 0, valores.values.ml, 0],
-                [0, 0, 0, valores.values.rg, 0]
+                    [0, , , , , , , , , , 1, , , , , , , , , , , 0, , , , , , , , , , , , , , , ],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, , , , , , , , , , 1, , , , , , , , , , 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, , , , , , , , , ,1 , , , , , , , , , , 0, , , , , , ],
+                    arreglo
             ]
         }, {
-            low: 0,
-            showArea: true
+            high: 1,
+            showArea: true,
+            showLine: true,
+            showPoint: false,
+            fullWidth: true,
+            axisX: {
+                showLabel: true,
+                showGrid: true
+            }
         });
+        console.log(arreglo);
     </script>
 </html>
